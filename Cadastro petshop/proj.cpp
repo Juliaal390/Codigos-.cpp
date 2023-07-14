@@ -1,10 +1,10 @@
 /**Programa que cadastra animais para banho em um petshop.
 Dados: especie, raça, nome, dono, porte, contato.
 Crie um menu de opções para:
-	- Cadastro: menu com as opções - cliente: nome, telefone.   -animal: dono, esp?cie, ra?a, nome, porte, contato; - voltar
+	- Cadastro: menu com as opções - cliente: nome, telefone.   -animal: dono, espécie, raça, nome, porte, contato; - voltar
 	- Buscar dados;
 	- Alterar dados;
-	- Listagem de clientes (em ordem crescente de n?mero de telefone)
+	- Listagem de clientes (em ordem crescente de número de telefone)
 	- Excluir.*/
 
 #include <iostream> //cin e cout
@@ -17,7 +17,8 @@ int main (){
     //variáveis
     char resposta, resposta_2;
     int opcao, indice=1, opcao_2, ind=0; //se indices não tiverem valor declarado, pode sobrar "lixo"
-    string nome_cliente[100], telefone[100], nome_animal[100], especie[100], raca[100], porte[100], dono, dono_animal[100];
+    string nome_cliente[100], telefone[100], nome_animal[100], especie[100], raca[100], porte[100], dono, dono_animal[100], procurar_cliente, tel_cliente[100];
+    bool achei_1=false, achei_2=false;
     //
     do{
 
@@ -30,7 +31,7 @@ int main (){
     cout<<"(F) Sair dados"<<endl;
     cin>>resposta;
 
-    if(toupper(resposta)=='A'){ //se resposta(em mai?sculo) for = A
+    if(toupper(resposta)=='A'){ //se resposta(em maiúsculo) for = A
         opcao = 1;
     }
     else if(toupper(resposta)=='B'){
@@ -51,9 +52,8 @@ int main (){
 
     switch(opcao){
         case 1:{
-
-            do{
-            cout<<"====== MENU DE CADASTRO ======"<<endl;
+            do {
+            cout<<"=== MENU DE CADASTRO ==="<<endl;
             cout<<"(A) Cliente"<<endl;
             cout<<"(B) Animal"<<endl;
             cout<<"(C) Voltar ao menu principal"<<endl;
@@ -77,6 +77,7 @@ int main (){
                 getline(cin, nome_cliente[indice]); //getline para strings compostas
                 cout<<"Telefone: ";
                 getline(cin, telefone[indice]);
+
                 cout<<endl<<"Cadastro realizado com sucesso"<<endl;
                 indice++;
                 break;
@@ -97,19 +98,48 @@ int main (){
                 for(int i=0; i<indice; i++){
                     if (dono==nome_cliente[i]){
                         dono_animal[ind]=nome_cliente[i];
-                    }
+                        tel_cliente[ind]=telefone[i];
+                        achei_1=true;
+                        cout<<endl<<"Cadastro realizado com sucesso"<<endl;
+                    }  
                 }
-                cout<<endl<<"Cadastro realizado com sucesso"<<endl;
+                if(achei_1==false){
+                        cout<<"Cliente não encontrado"<<endl;
+                        break;
+                    }
+                
                 ind++;
-                break;  } //case 2
-            } //switch dentro do switch
+                break;
+                 } //case 2
+            } //switch dentro do switch}
+            }while (opcao_2 != 3);
+            
+           break;
         
         case 2:{
+            cout<<"=== BUSCAR DADOS ==="<<endl;
+            cout<<"Inserir cliente: ";
+            cin.ignore();
+            getline(cin, procurar_cliente);
 
-        }
-            }while(opcao_2!=3); 
-} //switch principal
- 
-    }
-} while(opcao!=7); //enquanto opcao não for = 7 (sair), o programa continuará em looping
-}
+             for(int i=0; i<ind; i++){
+                if(procurar_cliente==dono_animal[i]){
+                     cout<<"Cliente: "<<dono_animal[i]<<endl;
+                     cout<<"Contato: "<<tel_cliente[i]<<endl;
+                     cout<<"Nome do animal: "<<nome_animal[i]<<endl;
+                     cout<<"Espécie: "<<especie[i]<<endl;
+                     cout<<"Raça: "<<raca[i]<<endl;
+                     cout<<"Porte: "<<porte[i]<<endl;
+                     achei_2=true; } 
+               }
+                if(achei_2==false){
+                     cout<<"Cliente não encontrado"<<endl; }
+                     break;
+            }
+           
+
+        }}
+            
+} while(opcao!=6); //enquanto opcao não for = 6 (sair), o programa continuará em looping
+ }
+    
