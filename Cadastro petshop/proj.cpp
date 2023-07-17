@@ -17,8 +17,8 @@ int main (){
     //variáveis
     char resposta, resposta_2;
     int opcao, indice=1, opcao_2, ind=0; //se indices não tiverem valor declarado, pode sobrar "lixo"
-    string nome_cliente[100], telefone[100], nome_animal[100], especie[100], raca[100], porte[100], dono, dono_animal[100], procurar_cliente, tel_cliente[100];
-    bool achei_1=false, achei_2=false;
+    string nome_cliente[100], telefone[100], nome_animal[100], especie[100], raca[100], porte[100], dono, dono_animal[100], procurar_cliente, tel_cliente[100], n;
+    
     //
     do{
 
@@ -95,6 +95,8 @@ int main (){
                 cout<<"Cliente: ";
                 getline(cin, dono);
 
+                bool achei_1=false;
+
                 for(int i=0; i<indice; i++){
                     if (dono==nome_cliente[i]){
                         dono_animal[ind]=nome_cliente[i];
@@ -122,6 +124,8 @@ int main (){
             cin.ignore();
             getline(cin, procurar_cliente);
 
+            bool achei_2=false;
+
              for(int i=0; i<ind; i++){
                 if(procurar_cliente==dono_animal[i]){
                      cout<<"Cliente: "<<dono_animal[i]<<endl;
@@ -136,9 +140,33 @@ int main (){
                      cout<<"Cliente não encontrado"<<endl; }
                      break;
             }
-           
+        
+        case 3:{
+            cout<<"=== ALTERAR DADOS ==="<<endl;
+            cout<<"Insira o nome do cliente: ";
+            cin.ignore();
+            getline(cin, n);
+
+            for(int i=0; i<ind; i++){
+                if(n==dono_animal[i]){
+                     cout<<"Cliente: ";
+                     getline(cin, dono_animal[i]);
+                     cout<<"Contato: ";
+                     getline(cin, tel_cliente[i]);
+                     cout<<"Nome do animal: "; 
+                     getline(cin, nome_animal[i]);
+                     cout<<"Espécie: "; 
+                     getline(cin, especie[i]);
+                     cout<<"Raça: "; 
+                     getline(cin, raca[i]);
+                     cout<<"Porte: "; 
+                     getline(cin, porte[i]);
+                }
+            }
+        }
 
         }}
+
             
 } while(opcao!=6); //enquanto opcao não for = 6 (sair), o programa continuará em looping
  }
