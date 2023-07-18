@@ -15,9 +15,9 @@ int main (){
     setlocale(LC_ALL, "portuguese"); //caracteres
 
     //variáveis
-    char resposta, resposta_2;
+    char resposta, resposta_2, excluir;
     int opcao, indice=1, opcao_2, ind=0; //se indices não tiverem valor declarado, pode sobrar "lixo"
-    string nome_cliente[100], telefone[100], nome_animal[100], especie[100], raca[100], porte[100], dono, dono_animal[100], procurar_cliente, tel_cliente[100], n;
+    string nome_cliente[100], telefone[100], nome_animal[100], especie[100], raca[100], porte[100], dono, dono_animal[100], procurar_cliente, tel_cliente[100], n, nc;
     
     //
     do{
@@ -28,7 +28,7 @@ int main (){
     cout<<"(C) Alterar Dados"<<endl;
     cout<<"(D) Listagem de clientes"<<endl;
     cout<<"(E) Excluir dados"<<endl;
-    cout<<"(F) Sair dados"<<endl;
+    cout<<"(F) Sair"<<endl;
     cin>>resposta;
 
     if(toupper(resposta)=='A'){ //se resposta(em maiúsculo) for = A
@@ -163,6 +163,48 @@ int main (){
                      getline(cin, porte[i]);
                 }
             }
+        }
+        case 4:{
+
+        }
+        case 5:{
+            cout<<"=== EXCLUIR ==="<<endl;
+            cout<<"Insira o nome do cliente: ";
+            cin.ignore();
+            getline(cin, nc);
+
+            bool achei_3=false;
+
+            for(int i=0; i<ind; i++){
+                if(nc==dono_animal[i]){
+                     achei_3=true;
+
+                     cout<<"Cliente: "<<dono_animal[i]<<endl;
+                     cout<<"Contato: "<<tel_cliente[i]<<endl;
+                     cout<<"Nome do animal: "<<nome_animal[i]<<endl;
+                     cout<<"Espécie: "<<especie[i]<<endl;
+                     cout<<"Raça: "<<raca[i]<<endl;
+                     cout<<"Porte: "<<porte[i]<<endl;
+
+                     cout<<"Deseja excluir estes dados? (s/n)"<<endl;
+                     cin>>excluir;
+
+                     char excl = toupper(excluir);
+
+                     if(excl=='S'){
+                     dono_animal[i]="";
+                     tel_cliente[i]="";
+                     nome_animal[i]="";
+                     especie[i]="";
+                     raca[i]="";
+                     porte[i]="";
+                     }
+                }
+            }
+            if(!achei_3){
+                cout<<"Cliente não encontrado";
+            }
+
         }
 
         }}
