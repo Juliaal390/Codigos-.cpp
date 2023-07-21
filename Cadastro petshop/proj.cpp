@@ -4,7 +4,7 @@ Crie um menu de opções para:
 	- Cadastro: menu com as opções - cliente: nome, telefone.   -animal: dono, espécie, raça, nome, porte, contato; - voltar
 	- Buscar dados;
 	- Alterar dados;
-	- Listagem de clientes (em ordem crescente de número de telefone)
+	- Listagem de clientes (do mais recente para mais antigo);
 	- Excluir.*/
 
 #include <iostream> //cin e cout
@@ -163,8 +163,19 @@ int main (){
                      getline(cin, porte[i]);
                 }
             }
+            break;
         }
         case 4:{
+            for(int i=ind-1; i>=0; i--){ //loop do mais recente para mais antigo
+                     cout<<"Cliente: "<<dono_animal[i]<<endl;
+                     cout<<"Contato: "<<tel_cliente[i]<<endl;
+                     cout<<"Nome do animal: "<<nome_animal[i]<<endl;
+                     cout<<"Espécie: "<<especie[i]<<endl;
+                     cout<<"Raça: "<<raca[i]<<endl;
+                     cout<<"Porte: "<<porte[i]<<endl;
+                     cout<<endl;
+            }
+            break;
 
         }
         case 5:{
