@@ -1,6 +1,6 @@
 /*
 Cada espectador de um cinema respondeu a um questionário no qual constava sua idade e sua opinião em relação ao filme:
-ótimo ?3; bom ?2; regular ?1
+ótimo-3; bom?2; regular?1
 Faça um programa que receba a idade e a opinião de quinze espectadores, calcule e mostre:
 a)média das idades das pessoas que responderam ótimo;
 b)quantidade de pessoas que responderam regular;
