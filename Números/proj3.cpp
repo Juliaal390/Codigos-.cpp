@@ -14,7 +14,7 @@ int main(){
     int maior, menor;
 
     do{
-        cout<<"Insira um número inteiro: ";
+        cout<<"Insira um número inteiro positivo: ";
         cin>>num;
         if(cont==0){    //se for a primeira iteração, o num será tanto o maior quanto o menor
             maior=num;
@@ -25,6 +25,9 @@ int main(){
         }
         if(num<menor && num>0){
             menor = num;
+        }
+        if(num<0){
+            cout<<"Números negativos não serão contabilizados\n";
         }
         cont++;
     }
