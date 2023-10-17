@@ -5,7 +5,7 @@ de 0 a N em ordem decrescente*/
 #include <locale.h> //setlocale
 using namespace std;
 
-void recur(int num);
+void recur(int num); //função feita depois do main deve ser declarada
 
 int main(){
     setlocale(LC_ALL, "portuguese");
