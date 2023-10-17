@@ -21,8 +21,4 @@ void recur(int num){
         cout<<num;
         recur(num-1);
     }
-    else{
-        cout<<"Apenas números positivos"<<endl;
-        main();
-    }
 }
