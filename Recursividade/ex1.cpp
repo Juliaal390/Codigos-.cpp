@@ -10,15 +10,17 @@ void recur(int num);
 int main(){
     setlocale(LC_ALL, "portuguese");
 
-    int n;
+    int n; //cria a var n
     cout<<"Digite um número: ";
-    cin>>n;
-    recur(n);
+    cin>>n; //atribui valor a n
+    recur(n); //num (linha 19) = n
 
 }
 void recur(int num){
     if(num>=0){
-        cout<<num;
-        recur(num-1);
+        cout<<num<<" ";
+        recur(num-1); //chama a função novamente, mas num vale menos
     }
+    cout<<endl;
+    main();
 }
