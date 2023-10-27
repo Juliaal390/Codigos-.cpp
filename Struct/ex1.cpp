@@ -1,14 +1,15 @@
-#include <iostream>
-#include <locale.h>
+/*Crie um programa usando struct, que recebe e imprime o nome e a nota de estudantes*/
+#include <iostream> //cin e cout
+#include <locale.h> //setlocale
 using namespace std;
-void imprimir();
+void imprimir(); //declaração de funções (depois domain - obrigatório declarar)
 void registrar();
 
 struct materias{
 	float portugues, matematica, historia, geografia, ciencias;
 };
 
-materias nota[100];
+materias nota[100]; //var nota do tipo materiais, que armazena 100 notas
 int cont = 0;
 string aluno[100];
 
@@ -57,7 +58,7 @@ void registrar(){
 
 void imprimir(){
 	for(int i=0; i<cont; i++){
-	cout<<"* NOME DO ALUNO: "<<nota[i].portugues<<" *"<<endl;
+	cout<<"* NOME DO ALUNO: "<<aluno[i]<<" *"<<endl;
 	cout<<"PORTUGUÊS: "<<nota[i].portugues<<endl;
 	cout<<"MATEMÁTICA: "<<nota[i].matematica<<endl;
 	cout<<"HISTÓRIA: "<<nota[i].historia<<endl;
